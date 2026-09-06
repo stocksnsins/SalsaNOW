@@ -18,6 +18,10 @@ namespace SalsaNOW
         [STAThread]
         static async Task Main(string[] args)
         {
+            // Clean steam environment before everything.
+            // WE LEAVE THIS MANDATORY HERE DON'T MOVE OR DELETE.
+            SteamDetach.RemoveSteamEnvironments();
+
             string origPath = @"C:\Users\Public\steamclient64_orig.dll";
             string steamPath = @"C:\Program Files (x86)\Steam\steamclient64.dll";
             if (!System.IO.File.Exists(origPath) && System.IO.File.Exists(steamPath))
@@ -25,10 +29,6 @@ namespace SalsaNOW
                 try { System.IO.File.Copy(steamPath, origPath); } catch { }
             }
             DropSteamHijack();
-
-            // Clean steam environment before everything.
-            // WE LEAVE THIS MANDATORY HERE DON'T MOVE OR DELETE.
-            SteamDetach.RemoveSteamEnvironments();
 
             Console.Title = "SalsaNOW V1.6.8 - by dpadGuy";
 
