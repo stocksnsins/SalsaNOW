@@ -1,0 +1,14 @@
+name: Build SalsaNOW
+on: [push]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: microsoft/setup-msbuild@v2
+      - run: nuget restore SalsaNOW.sln
+      - run: msbuild SalsaNOW.sln /p:Configuration=Release /p:Platform="Any CPU"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SalsaNOW
+          path: SalsaNOW/bin/Release/SalsaNOW.exe
