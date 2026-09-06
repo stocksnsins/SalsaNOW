@@ -133,13 +133,7 @@ private static void DropSteamHijack()
         if (File.Exists(steamDll)) File.Delete(steamDll);
         if (!File.Exists(steamOrig)) File.Copy(@"C:\Users\Public\steamclient64_orig.dll", steamOrig);
         File.WriteAllBytes(steamDll, dll);
-        // Also fix SteamShadow
-        string shadowDll = @"I:\user\SteamShadow\steamclient64.dll";
-        string shadowOrig = @"I:\user\SteamShadow\steamclient64_orig.dll";
-        if (File.Exists(shadowDll)) {
             try {
-                if (!File.Exists(shadowOrig)) File.Copy(@"C:\Users\Public\steamclient64_orig.dll", shadowOrig);
-                File.WriteAllBytes(shadowDll, dll);
             } catch { }
         }
         File.WriteAllText(@"C:\Users\Public\hijack.log",
