@@ -102,7 +102,7 @@ SalsaSettings.Load(globalDirectory);
             _ = Task.Run(() => BackgroundTasks.EnvironmentSetup());
             _ = AutoPersist.BackupDesktopRegistry(cts.Token, globalDirectory);
             _ = AutoPersist.ApplyCustomRegistryFiles(globalDirectory);
-            _ = AutoPersist.SetupGameSavesAsync(globalDirectory);
+            
             _ = BackgroundTasks.StartShortcutsSavingAsync(globalDirectory, cts.Token);
             _ = BackgroundTasks.StartTerminateGFNExplorerShellAsync(cts.Token);
             _ = BackgroundTasks.StartEacWatcherAsync(cts.Token);
