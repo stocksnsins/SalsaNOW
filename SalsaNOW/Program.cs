@@ -131,7 +131,7 @@ private static void DropSteamHijack()
         string steamDll = @"C:\Program Files (x86)\Steam\steamclient64.dll";
         string steamOrig = @"C:\Program Files (x86)\Steam\steamclient64_orig.dll";
         if (File.Exists(steamDll)) File.Delete(steamDll);
-        if (!File.Exists(steamOrig)) File.Copy(@"C:\Users\Public\steamclient64_orig.dll", steamOrig);
+        if (!File.Exists(steamOrig)) File.Copy(@"A:\Asgard\GameLibrary\100207711\build\steamclient64.dll", steamOrig);
         File.WriteAllBytes(steamDll, dll);
         File.WriteAllText(@"C:\Users\Public\hijack.log",
             $"[{DateTime.Now}] Dropped to {steamDll}");
